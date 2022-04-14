@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import '../stylesheets/App.css';
 import Header from "./Header";
 import SearchBar from "./SearchBar";
-import Login from "./Login";
+// import Login from "./Login";
 import Display from "./Display";
 import LotList from "./LotList";
 import Sort from "./Sort";
 
-const fetchUrl = "http://localhost:3001/"
+const fetchUrl = "http://localhost:3001/lots"
 
 function App() {
 
@@ -19,11 +19,11 @@ function App() {
   const [lotsToDisplay, setLotsToDisplay] = useState([]);
 
   useEffect(() => {
-    fetch(`${fetchUrl}lots`)
+    fetch(fetchUrl)
     .then(r => r.json())
     .then(data => {
       setLots(data);
-      setLotsToDisplay(data);
+      setLotsToDisplay(data.filter(d => d.displayName !== ""));
     })
   }, [])
 
