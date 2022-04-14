@@ -1,22 +1,81 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../stylesheets/App.css';
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Login from "./Login";
 import Display from "./Display";
-import ResidentList from "./ResidentList";
+import LotList from "./LotList";
 import Sort from "./Sort";
 
+const fetchUrl = "http://localhost:3001/"
+
 function App() {
+
+  console.log("New render")
+  const [lots, setLots] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [searchBy, setSearchBy] = useState("displayName");
+  const [sortBy, setSortBy] = useState("lot");
+  const [lotsToDisplay, setLotsToDisplay] = useState([]);
+
+  useEffect(() => {
+    fetch(`${fetchUrl}lots`)
+    .then(r => r.json())
+    .then(data => {
+      setLots(data);
+      setLotsToDisplay(data);
+    })
+  }, [])
+
+  function updateSortBy(sort, lot) {
+    console.log("Sort: ", sort);
+    console.log("Lot: ", lot);
+    let update = lot !== undefined ? lot : lotsToDisplay;
+    console.log("lot defined? ", lot !== undefined);
+    const sortTerm = sort !== null ? sort : sortBy;
+    console.log("SortTerm: ", sortTerm);
+    if (sortTerm === "lot") {
+      update = update.sort((a, b) => {return a.lot-b.lot})
+    } else {
+      update = update.sort((a, b) => {
+        const nameA = a[sortTerm].toUpperCase();
+        const nameB = b[sortTerm].toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      })
+    }
+    setLotsToDisplay(update);
+    console.log("Final Update: ", update);
+    if (sort !== null) {setSortBy(sort)};
+  }
+
+  function handleFilterSubmit() {
+    let lotUpdate = lots.filter(l => l[searchBy] !== "");
+    lotUpdate = lotUpdate.filter(lot => {
+      return searchBy==="lot" ? lot.lot===parseInt(filter, 10) : lot[searchBy].toUpperCase().includes(filter.toUpperCase());
+    })
+    updateSortBy(null, lotUpdate);
+  }
+
   return (
     <div className="App">
       <Header>
-        <SearchBar />
-        <Login />
+        <SearchBar
+          filter={filter}
+          onFilter={setFilter}
+          searchyBy={searchBy}
+          onSearchBy={setSearchBy}
+          onSubmit={handleFilterSubmit} />
+        {/* <Login /> */}
       </Header>
       <Display>
-        <Sort />
-        <ResidentList />
+        <Sort sortBy={sortBy} onSortBy={updateSortBy} />
+        <LotList lots={lotsToDisplay} />
       </Display>
     </div>
   );
