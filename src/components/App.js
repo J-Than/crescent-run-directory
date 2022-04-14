@@ -11,7 +11,6 @@ const fetchUrl = "http://localhost:3001/lots"
 
 function App() {
 
-  console.log("New render")
   const [lots, setLots] = useState([]);
   const [filter, setFilter] = useState("");
   const [searchBy, setSearchBy] = useState("displayName");
@@ -28,12 +27,8 @@ function App() {
   }, [])
 
   function updateSortBy(sort, lot) {
-    console.log("Sort: ", sort);
-    console.log("Lot: ", lot);
     let update = lot !== undefined ? lot : lotsToDisplay;
-    console.log("lot defined? ", lot !== undefined);
     const sortTerm = sort !== null ? sort : sortBy;
-    console.log("SortTerm: ", sortTerm);
     if (sortTerm === "lot") {
       update = update.sort((a, b) => {return a.lot-b.lot})
     } else {
@@ -50,7 +45,6 @@ function App() {
       })
     }
     setLotsToDisplay(update);
-    console.log("Final Update: ", update);
     if (sort !== null) {setSortBy(sort)};
   }
 
