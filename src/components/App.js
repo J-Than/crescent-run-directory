@@ -58,15 +58,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header>
-        <SearchBar
-          filter={filter}
-          onFilter={setFilter}
-          searchyBy={searchBy}
-          onSearchBy={setSearchBy}
-          onSubmit={handleFilterSubmit} />
-        {/* <Login /> */}
-      </Header>
+      <Header />
+      <SearchBar
+        filter={filter}
+        onFilter={setFilter}
+        searchyBy={searchBy}
+        onSearchBy={setSearchBy}
+        onSubmit={handleFilterSubmit} />
+      {/* <Login /> */}
       <Display>
         <Sort sortBy={sortBy} onSortBy={updateSortBy} />
         <LotList lots={lotsToDisplay} />

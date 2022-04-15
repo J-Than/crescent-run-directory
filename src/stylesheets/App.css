@@ -1,14 +1,76 @@
+
+
 .App {
   text-align: left;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 20vh;
+  margin-top: 10px;;
+  background-color: burlywood;
+  min-height: 12vh;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: left;
-  font-size: calc(10px + 1vmin);
+  border-style: inset;
+  border-inline-start-color: rgb(214, 160, 99);
+  border-inline-end-color: rgb(247, 213, 139);
+  border-top-color: rgb(255, 188, 111);
+  border-bottom-color: rgb(238, 207, 140);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: fantasy;
+  color: teal;
+  text-shadow: 1px 1px #a4724d;
+  line-height: 0em;
+}
+
+.Search-bar {
+  margin-top: 4px;;
+  background-color: teal;
   color: white;
+  padding-top: 8px;
+  border-style: outset;
+  border-inline-start-color: rgb(120, 167, 172);
+  border-inline-end-color: rgb(31, 176, 150);
+  border-top-color: rgb(107, 165, 153);
+  border-bottom-color: rgb(18, 189, 167);
+  width: 100%;
+}
+
+.Display {
+  margin-top: 4px;;
+  background-color: burlywood;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  border-style: inset;
+  border-inline-start-color: rgb(214, 160, 99);
+  border-inline-end-color: rgb(247, 213, 139);
+  border-top-color: rgb(255, 188, 111);
+  border-bottom-color: rgb(238, 207, 140);
+  color: black;
+  line-height: 0.2em;
+}
+
+.Sort {
+  align-items: right;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Search-bar, .Login, .Sort {
+  padding-left: 10px;
+  padding-bottom: 10px;;
 }

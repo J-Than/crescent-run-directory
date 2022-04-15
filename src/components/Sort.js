@@ -8,7 +8,7 @@ function Sort({ sortBy, onSortBy }) {
 
   return (
     <div className="Sort">
-      <span>Sort By: </span>
+      <strong>Sort By: </strong>
       <select value={sortBy} onChange={handleSortBy}>
         <option value="lastName">Last Name</option>
         <option value="firstName">First Name</option>
