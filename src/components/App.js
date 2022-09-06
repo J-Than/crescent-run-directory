@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import '../stylesheets/App.css';
 import Header from "./Header";
+import NavBar from "./NavBar";
+import Home from "./Home";
+import Map from "./Map";
+import Photos from "./Photos";
 import SearchBar from "./SearchBar";
-// import Login from "./Login";
+import Login from "./Login";
 import Display from "./Display";
 import LotList from "./LotList";
 import Sort from "./Sort";
+import Admin from "./Admin";
+import { Nav } from "react-bootstrap";
 
-const fetchUrl = "http://localhost:3001/lots"
+const fetchUrl = "http://localhost:3000/lots"
 
 function App() {
 
@@ -16,6 +23,10 @@ function App() {
   const [searchBy, setSearchBy] = useState("displayName");
   const [sortBy, setSortBy] = useState("lot");
   const [lotsToDisplay, setLotsToDisplay] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
 
   useEffect(() => {
     fetch(fetchUrl)
@@ -56,20 +67,71 @@ function App() {
     updateSortBy(null, lotUpdate);
   }
 
+  function handleLogIn() {
+    if (loggedIn) {setLoggedIn(false)}
+    if (!loggedIn) {
+      if (user === "Test" && password === "123") {
+        setLoggedIn(true);
+        setLoginError(false);
+      } else {
+        setLoginError(true);
+      }
+    };
+  }
+
+  function handleNewEntry(newEntry) {
+    fetch(fetchUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEntry),
+    })
+    .then((r) => r.json())
+    .then((data) => {setLots([...lots, data])})
+  }
+
   return (
     <div className="App">
       <Header />
-      <SearchBar
-        filter={filter}
-        onFilter={setFilter}
-        searchyBy={searchBy}
-        onSearchBy={setSearchBy}
-        onSubmit={handleFilterSubmit} />
-      {/* <Login /> */}
-      <Display>
-        <Sort sortBy={sortBy} onSortBy={updateSortBy} />
-        <LotList lots={lotsToDisplay} />
-      </Display>
+      <NavBar />
+      <Switch>
+        <Route exact path="/search">
+          <SearchBar
+            filter={filter}
+            onFilter={setFilter}
+            searchyBy={searchBy}
+            onSearchBy={setSearchBy}
+            onSubmit={handleFilterSubmit} />
+          <Display>
+            <Sort sortBy={sortBy} onSortBy={updateSortBy} />
+            <LotList lots={lotsToDisplay} />
+          </Display>
+        </Route>
+        <Route exact path="/admin">
+          <Login
+            loggedIn={loggedIn}
+            onLogin={handleLogIn}
+            user={user}
+            onUser={setUser}
+            password={password}
+            onPassword={setPassword}
+            error={loginError}
+            onError={setLoginError} />
+          <Admin
+            loggedIn={loggedIn}
+            onSubmit={handleNewEntry} />
+        </Route>
+        <Route exact path="/map">
+          <Map />
+        </Route>
+        <Route exact path="/photos">
+          <Photos />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
