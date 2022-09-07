@@ -10,11 +10,11 @@ function Photos() {
 
   return (
     <div className="Photos">
-      <img src={photo1} className="Large-crop" alt={"Crescent Run Hot Tubs"} />
-      <img src={photo2} className="Large-crop" alt={"Crescent Run Center"} />
-      <img src={photo3} className="Large-crop" alt={"Crescent Run Park"} />
-      <img src={photo4} className="Large-crop" alt={"Crescent Run Swimming Pool"} />
-      <img src={photo5} className="Large-crop" alt={"Crescent Run Shuffleboard Court"} />
+      <img src={photo1} className="Large-crop" alt={"Crescent Run Hot Tubs"} /><br />
+      <img src={photo2} className="Large-crop" alt={"Crescent Run Center"} /><br />
+      <img src={photo3} className="Large-crop" alt={"Crescent Run Park"} /><br />
+      <img src={photo4} className="Large-crop" alt={"Crescent Run Swimming Pool"} /><br />
+      <img src={photo5} className="Large-crop" alt={"Crescent Run Shuffleboard Court"} /><br />
     </div>
   );
 }
