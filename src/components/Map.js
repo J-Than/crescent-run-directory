@@ -6,7 +6,7 @@ function Map() {
 
   return (
     <div className="Map">
-      <img src={photo} className="Large-crop" alt={"Crescent Run Map"} />
+      <img src={photo} className="Map-crop" alt={"Crescent Run Map"} />
     </div>
   );
 }
