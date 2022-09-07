@@ -75,6 +75,13 @@
   margin-top: 6px;
 }
 
+.Admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .Display {
   margin-top: 4px;
   background-color: burlywood;
@@ -144,6 +151,13 @@ h3 {
 
 small {
   line-height: 0.8em;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
 a {
