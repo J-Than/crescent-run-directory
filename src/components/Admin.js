@@ -149,7 +149,7 @@ function Admin({ loggedIn, onSubmit }) {
   } else {
     return (
       <div className="Admin">
-        <h3>Please enter your Username and Password to access the admin section.</h3>
+        <h4>Please enter your Username and Password to access the admin section.</h4>
       </div>
     )
   }
