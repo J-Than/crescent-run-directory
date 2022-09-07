@@ -46,11 +46,11 @@ function Admin({ loggedIn, onSubmit }) {
         <h4>Please use the form below to add new residents.</h4>
         <form onSubmit={handleNewSubmit}>
           <label>
-            Lot: 
+            Lot Number: 
             <input
               type="text"
               name="lot"
-              placeholder="Lot Number"
+              placeholder="Lot"
               onChange={handleUpdate}
               value={newEntry.lot}
               >
@@ -62,7 +62,7 @@ function Admin({ loggedIn, onSubmit }) {
             <input
               type="text"
               name="firstName"
-              placeholder="First Name"
+              placeholder="First Name (used for sorting only)"
               onChange={handleUpdate}
               value={newEntry.firstName}
               >
@@ -74,7 +74,7 @@ function Admin({ loggedIn, onSubmit }) {
             <input
               type="text"
               name="lastName"
-              placeholder="Last Name"
+              placeholder="Last Name (used for sorting only)"
               onChange={handleUpdate}
               value={newEntry.lastName}
               >
