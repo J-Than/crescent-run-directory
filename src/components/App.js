@@ -104,7 +104,7 @@ function App() {
             searchyBy={searchBy}
             onSearchBy={setSearchBy}
             onSubmit={handleFilterSubmit} />
-          <Display onSearch={setBlankSearch}>
+          <Display search={blankSearch} onSearch={setBlankSearch}>
             <Sort sortBy={sortBy} onSortBy={updateSortBy} />
             <LotList lots={lotsToDisplay} />
           </Display>
