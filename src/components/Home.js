@@ -7,7 +7,7 @@ function Home() {
   return (
 
     <div className="Home">
-      <h2>Welcome to the Crescent Run Resident Directory!</h2>
+      <h2></h2>
       <img src={photo} alt={"Crescent Run Welcome Sign"} />
     </div>
 
