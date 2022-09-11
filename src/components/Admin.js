@@ -48,7 +48,10 @@ function Admin({ loggedIn, onSubmit }) {
           <label>
             Lot Number: 
             <input
-              type="text"
+              type="number"
+              step="1"
+              min="1"
+              max="600"
               name="lot"
               placeholder="Lot"
               onChange={handleUpdate}
