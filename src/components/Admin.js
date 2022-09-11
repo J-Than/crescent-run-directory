@@ -52,6 +52,7 @@ function Admin({ loggedIn, onSubmit }) {
               step="1"
               min="1"
               max="600"
+              required
               name="lot"
               placeholder="Lot"
               onChange={handleUpdate}
@@ -77,6 +78,7 @@ function Admin({ loggedIn, onSubmit }) {
             <input
               type="text"
               name="lastName"
+              required
               placeholder="Last Name (used for sorting only)"
               onChange={handleUpdate}
               value={newEntry.lastName}
@@ -101,6 +103,7 @@ function Admin({ loggedIn, onSubmit }) {
             <input
               type="text"
               name="displayName"
+              required
               placeholder="This is how the name(s) will appear in the directory"
               onChange={handleUpdate}
               value={newEntry.displayName}
