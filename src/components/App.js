@@ -27,6 +27,7 @@ function App() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
+  const [blankSearch, setBlankSearch] = useState(true);
 
   useEffect(() => {
     fetch(fetchUrl)
@@ -103,7 +104,7 @@ function App() {
             searchyBy={searchBy}
             onSearchBy={setSearchBy}
             onSubmit={handleFilterSubmit} />
-          <Display>
+          <Display onSearch={setBlankSearch}>
             <Sort sortBy={sortBy} onSortBy={updateSortBy} />
             <LotList lots={lotsToDisplay} />
           </Display>
