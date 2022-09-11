@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Home() {
 
@@ -10,7 +11,16 @@ function Home() {
       <h2 />
       <img src={photo} alt={"Crescent Run Welcome Sign"} />
       <p />
-      <button >Search Now</button>
+      <NavLink
+        to="/search"
+        exact
+        className={"Search-now"}
+        activeStyle={{
+          color: "white"
+        }}
+      >
+        Search Now
+      </NavLink>
     </div>
 
   );
