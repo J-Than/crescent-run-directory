@@ -66,6 +66,7 @@ function App() {
       return searchBy==="lot" ? lot.lot===parseInt(filter, 10) : lot[searchBy].toUpperCase().includes(filter.toUpperCase());
     })
     updateSortBy(null, lotUpdate);
+    setBlankSearch(false);
   }
 
   function handleLogIn() {
@@ -104,7 +105,7 @@ function App() {
             searchyBy={searchBy}
             onSearchBy={setSearchBy}
             onSubmit={handleFilterSubmit} />
-          <Display search={blankSearch} onSearch={setBlankSearch}>
+          <Display search={blankSearch}>
             <Sort sortBy={sortBy} onSortBy={updateSortBy} />
             <LotList lots={lotsToDisplay} />
           </Display>

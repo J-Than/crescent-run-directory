@@ -1,6 +1,6 @@
 import React from "react";
 
-function Display({ search, onsearch, children }) {
+function Display({ search, children }) {
   if (search) {
     return (
       <div className="Display">
