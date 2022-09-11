@@ -12,7 +12,6 @@ import Display from "./Display";
 import LotList from "./LotList";
 import Sort from "./Sort";
 import Admin from "./Admin";
-import { Nav } from "react-bootstrap";
 
 const fetchUrl = "http://localhost:3000/lots"
 
