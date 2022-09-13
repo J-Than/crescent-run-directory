@@ -20,6 +20,11 @@ Future planned improvements include an interactive map and a better display of d
 
 The website will not be publicly available until a password system has been implemented to protect the privacy of residents.
 
+
+## Contributing
+
+This code is for a private project, and outside contributions are not solicited.
+
 ## Acknowledgements
 
 Welcome image: https://www.hometownamerica.com/CrescentRun 
