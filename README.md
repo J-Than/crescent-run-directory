@@ -25,3 +25,7 @@ The website will not be publicly available until a password system has been impl
 Welcome image: https://www.hometownamerica.com/CrescentRun 
 
 Photos: https://www.mhbo.com/mobile-home-park/37402-crescent-run-mhc-8500-e-southern-ave-mesa-az-85209
+
+## License
+
+This project is not licensed for public use of any sort, as it is a private directory for a specific community.
