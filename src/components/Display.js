@@ -5,7 +5,7 @@ function Display({ search, children }) {
     return (
       <div className="Display">
         <p />
-        <h3>Enter terms above to search for residents.</h3>
+        <h3>Search for residents using the fields above.</h3>
       </div>
     );
   } else {
