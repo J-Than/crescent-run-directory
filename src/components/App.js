@@ -12,6 +12,7 @@ import Display from "./Display";
 import LotList from "./LotList";
 import Sort from "./Sort";
 import Admin from "./Admin";
+// import ClickMe from "./ClickMe";
 
 const fetchUrl = "http://localhost:3000/lots"
 
@@ -96,6 +97,7 @@ function App() {
     <div className="App">
       <Header />
       <NavBar />
+      {/* <ClickMe /> */}
       <Switch>
         <Route exact path="/search">
           <SearchBar
