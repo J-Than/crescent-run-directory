@@ -14,7 +14,8 @@ import Sort from "./Sort";
 import Admin from "./Admin";
 // import ClickMe from "./ClickMe";
 
-const fetchUrl = "http://localhost:3000/lots"
+// const fetchUrl = "http://localhost:3000/lots"
+const fetchUrl = "https://j-than.github.io/crescent-run-directory/db.json/lots"
 
 function App() {
 
